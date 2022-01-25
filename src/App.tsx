@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes, } from 'react-router-dom';
 import './App.css';
+import CoursePageContainer from './components/CoursePage/CoursePageContainer';
+import ExchangePageContainer from './components/ExchangePage/ExchangePageContainer';
+import Header from './components/Header/Header';
+import LoginContainer from './components/Login/LoginContainer';
 
 function App() {
+
+  // if (localStorage.token !== 'test') {
+  //   return <LoginContainer />
+  // }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <Header />
+        <Routes>
+          <Route path='/course' element={<CoursePageContainer />} />
+          <Route path='/' element={<ExchangePageContainer />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
