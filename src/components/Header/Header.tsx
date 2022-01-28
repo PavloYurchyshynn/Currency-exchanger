@@ -4,17 +4,17 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 
 function Header(props: any) {
     return (
-        <div className={s.header}>
+        <header className={s.header}>
             <Navbar bg="primary" variant="dark">
                 <Container>
-                    <Navbar.Brand href="/">Сurrency exchange</Navbar.Brand>
+                    <Navbar.Brand href="/">Обмінник валют</Navbar.Brand>
                     <Nav className="me-auto">
-                        <NavLink to="/">Exchange</NavLink>
-                        <NavLink to="/course">course</NavLink>
+                        <NavLink to="/">обмін</NavLink>
+                        <NavLink to="/course">курс валют</NavLink>
                     </Nav>
                 </Container>
             </Navbar>
-        </div>
+        </header>
     );
 }
 

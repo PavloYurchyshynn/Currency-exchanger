@@ -26,21 +26,22 @@ function ExchangePage(props: any) {
 
     return (
         <div>
-            <span>
-                <ul>
-                    {exchangeElements}
-                </ul>
-            </span>
-            <form>
-                <div>Введіть: {props.course.txt}</div>
+            <form className={s.form}>
+                <h1>{!props.course.txt ? 'Виберіть валюту' : props.course.txt}</h1>
                 <input
                     type="text"
                     value={value}
                     onChange={e => setValue(e.target.value)}
                     onKeyPress={confirm}
+                    placeholder="Введіть суму"
                 />
-                <div>В гривнях: {course}</div>
+                <h1>В гривнях: {course.toFixed(2)}</h1>
             </form>
+            <span>
+                <ul>
+                    {exchangeElements}
+                </ul>
+            </span>
         </div>
     );
 }
