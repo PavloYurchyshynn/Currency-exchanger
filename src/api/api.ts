@@ -1,8 +1,9 @@
 import axios from "axios";
+import { IExchanges } from "../types/types";
 
 export const exchangesAPI = {
     getExchanges() {
-        return axios.get('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json')
+        return axios.get<IExchanges[]>('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json')
             .then(response => {
                 return response.data
             })

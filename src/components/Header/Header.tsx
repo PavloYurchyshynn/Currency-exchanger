@@ -2,7 +2,7 @@ import s from './Header.module.css'
 import { NavLink } from "react-router-dom";
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
-function Header(props: any) {
+function Header() {
     return (
         <header className={s.header}>
             <Navbar bg="primary" variant="dark">

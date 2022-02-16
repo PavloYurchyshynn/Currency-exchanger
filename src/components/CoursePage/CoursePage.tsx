@@ -1,8 +1,14 @@
+import { FC } from 'react';
+import { IExchanges } from '../../types/types';
 import s from './CoursePage.module.css'
 
-function CoursePage(props: any) {
+interface CourseProps {
+    exchanges: IExchanges[];
+}
 
-    let exchangeData = props.exchanges;
+const CoursePage: FC<CourseProps> = ({exchanges}) => {
+
+    let exchangeData = exchanges;
 
     let exchangeElements = exchangeData.map((e: any) => <li key={e.r030}>{e.cc}:  {e.rate}</li>)
 

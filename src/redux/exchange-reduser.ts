@@ -1,19 +1,17 @@
 import { exchangesAPI } from '../api/api';
+import { ExchangeAction, ExchangeActionTypes, ExchangeState } from '../types/types';
 
-const SET_EXCHANGES = 'SET_EXCHANGES'
-const SET_COURSE = 'SET_COURSE'
-
-let initialState = {
+let initialState: ExchangeState = {
     exchanges: [],
     course: {}
 }
 
-const exchangeReducer = (state = initialState, action: any) => {
+const exchangeReducer = (state = initialState, action: ExchangeAction): ExchangeState => {
     switch (action.type) {
-        case SET_EXCHANGES: {
+        case ExchangeActionTypes.SET_EXCHANGES: {
             return { ...state, exchanges: action.exchanges }
         }
-        case SET_COURSE: {
+        case ExchangeActionTypes.SET_COURSE: {
             return { ...state, course: action.course }
         }
         default: {
@@ -23,8 +21,8 @@ const exchangeReducer = (state = initialState, action: any) => {
 }
 
 
-export const setExchanges = (exchanges: any) => ({ type: SET_EXCHANGES, exchanges })
-export const setCourse = (course: any) => ({ type: SET_COURSE, course })
+export const setExchanges = (exchanges: any[]) => ({ type: ExchangeActionTypes.SET_EXCHANGES, exchanges })
+export const setCourse = (course: object) => ({ type: ExchangeActionTypes.SET_COURSE, course })
 
 export const getExchanges = () => {
 

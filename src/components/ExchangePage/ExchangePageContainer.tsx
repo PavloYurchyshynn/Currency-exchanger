@@ -8,8 +8,8 @@ function ExchangePageContainer(props: any) {
 
     const exchangeProps = {
         exchanges: props.exchanges,
-        setCourse: props.setCourse,
-        course: props.course
+        setNewCourse: props.setCourse,
+        newCourse: props.course
     }
 
     useEffect(() => {

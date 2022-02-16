@@ -61,3 +61,20 @@ ul {
     background: rgb(94, 70, 230);
     transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
+
+@media screen and (min-width: 500px) and (max-width: 1000px) {
+    ul {
+        column-count: 2;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .elements {
+        font-size: 10px;
+        height: 50px;
+        padding: 5px;
+    }
+    ul {
+        column-count: 2;
+    }
+}

@@ -3,7 +3,6 @@ import './App.css';
 import CoursePageContainer from './components/CoursePage/CoursePageContainer';
 import ExchangePageContainer from './components/ExchangePage/ExchangePageContainer';
 import Header from './components/Header/Header';
-import LoginContainer from './components/Login/LoginContainer';
 
 function App() {
 

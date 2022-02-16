@@ -1,33 +1,40 @@
-import { useState } from "react";
+import { FC, useState } from "react";
+import { IExchanges } from "../../types/types";
 import s from './ExchangePage.module.css'
 
-function ExchangePage(props: any) {
+interface ExchangeProps {
+    exchanges: IExchanges[];
+    newCourse: IExchanges;
+    setNewCourse: (e: any) => number
+}
 
-    const [value, setValue] = useState('')
-    const [course, setCourse] = useState(0)
+const ExchangePage: FC<ExchangeProps> = ({ exchanges, newCourse, setNewCourse }) => {
+
+    const [value, setValue] = useState<string>('')
+    const [course, setCourse] = useState<number>(0)
 
     const confirm = (e: any) => {
-        const newCourse = Number(value) * props.course.rate
+        const userCourse = Number(value) * newCourse.rate
         if (e.key === 'Enter') {
             e.preventDefault();
-            setCourse(newCourse)
+            setCourse(userCourse)
             setValue('')
         }
     }
 
-    let exchangeData = props.exchanges;
+    let exchangeData = exchanges;
     let exchangeElements = exchangeData.map((e: any) =>
         <li
             className={s.elements}
             key={e.r030}
-            onClick={() => { props.setCourse(e) }}>
+            onClick={() => { setNewCourse(e) }}>
             {e.txt}
         </li>)
 
     return (
         <div>
             <form className={s.form}>
-                <h1>{!props.course.txt ? 'Виберіть валюту' : props.course.txt}</h1>
+                <h1>{!newCourse.txt ? 'Виберіть валюту' : newCourse.txt}</h1>
                 <input
                     type="text"
                     value={value}
