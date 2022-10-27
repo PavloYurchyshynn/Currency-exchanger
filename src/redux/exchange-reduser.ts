@@ -1,7 +1,7 @@
 import { exchangesAPI } from '../api/api';
 import { ExchangeAction, ExchangeActionTypes, ExchangeState } from '../types/types';
 
-let initialState: ExchangeState = {
+const initialState: ExchangeState = {
     exchanges: [],
     course: {}
 }

@@ -9,7 +9,6 @@ interface ExchangeProps {
 }
 
 const ExchangePage: FC<ExchangeProps> = ({ exchanges, newCourse, setNewCourse }) => {
-
     const [value, setValue] = useState<string>('')
     const [course, setCourse] = useState<number>(0)
 
@@ -22,8 +21,8 @@ const ExchangePage: FC<ExchangeProps> = ({ exchanges, newCourse, setNewCourse })
         }
     }
 
-    let exchangeData = exchanges;
-    let exchangeElements = exchangeData.map((e: any) =>
+    const exchangeData = exchanges;
+    const exchangeElements = exchangeData.map((e: any) =>
         <li
             className={s.elements}
             key={e.r030}

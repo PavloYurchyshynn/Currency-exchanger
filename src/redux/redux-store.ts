@@ -3,10 +3,10 @@ import thunkMiddleware from "redux-thunk"
 import exchangeReducer from "./exchange-reduser";
 
 
-let reducers = combineReducers({
+const reducers = combineReducers({
     exchange: exchangeReducer
 })
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleware));
+const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 export default store

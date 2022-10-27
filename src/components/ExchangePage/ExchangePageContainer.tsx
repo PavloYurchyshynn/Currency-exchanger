@@ -5,7 +5,6 @@ import ExchangePage from "./ExchangePage"
 
 
 function ExchangePageContainer(props: any) {
-
     const exchangeProps = {
         exchanges: props.exchanges,
         setNewCourse: props.setCourse,
@@ -27,6 +26,7 @@ const mapStateToProps = (state: any) => {
         course: state.exchange.course
     }
 }
+
 export default connect(mapStateToProps,
     {
         getExchanges,
