@@ -1,65 +1,81 @@
+.container {
+    display: flex;
+    background-color: #f3f3f3;
+}
+
+.leftSide {
+    background:
+        linear-gradient(rgba(226, 66, 105, 0.8), rgba(156, 66, 105, 0.8)),
+        url('./../../image/bank.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 30%;
+    height: 90vh;
+    position: sticky;
+    top: 0;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+}
+
+.leftSideTitle {
+    margin-top: 45%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 42px;
+    letter-spacing: 10px;
+}
+
+.rightSide {
+    width: 70%;
+}
+
 .form {
     text-align: center;
 }
 
 .form input {
-    border-radius: 10px;
+    border-radius: 3px;
+    bottom: 1px solid rgb(225, 225, 225);
     padding: 10px;
     outline: none;
-    border: 3px solid rgb(131, 70, 230);
 }
 
-.form h1 {
-    color: rgb(38, 0, 100);
+.form p {
     margin: 20px 0;
+    font-size: 30px;
+    letter-spacing: 3px;
 }
 
 ul {
-    column-count: 3;
+    padding: 20px !important; 
+    list-style-type: none;
 }
 
-.elements {
-    list-style: none;
-    border-left: 4px solid rgb(131, 70, 230);
-    border-radius: 3px;
-    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, .2);
+.element {
+    border-bottom: 1px solid rgb(225, 225, 225) ;
     padding: 10px;
-    margin: 10px;
-    display: block;
+    display: flex;
+    justify-content: space-between;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    text-align: start;
 }
 
-.elements:first-of-type {
-    margin-top: 0;
+.element > div {
+    width: 50px;
 }
 
-.elements:hover {
-    cursor: pointer;
-    /* background-color: rgb(196, 196, 196); */
-    color: rgb(255, 255, 255) !important;
-    background-color: transparent;
-    text-shadow: none;
+.elementBtn {
+    color: #FFF;
+    border: none;
+    background: rgba(156, 66, 105, 1);
+    border-radius: 2px;
 }
 
-.elements:hover::before {
-    bottom: 0%;
-    top: auto;
-    height: 100%;
-}
-
-.elements::before {
-    display: block;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    height: 0px;
-    width: 100%;
-    z-index: -1;
-    content: '';
-    color: #000 !important;
-    background: rgb(94, 70, 230);
-    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+.elementBtn:hover {
+    background: rgb(176, 74, 118);
 }
 
 @media screen and (min-width: 500px) and (max-width: 1000px) {
@@ -74,6 +90,7 @@ ul {
         height: 50px;
         padding: 5px;
     }
+
     ul {
         column-count: 2;
     }

@@ -24,30 +24,50 @@ const ExchangePage: FC<ExchangeProps> = ({ exchanges, newCourse, setNewCourse })
     const exchangeData = exchanges;
     const exchangeElements = exchangeData.map((e: any) =>
         <li
-            className={s.elements}
+            className={s.element}
             key={e.r030}
-            onClick={() => { setNewCourse(e) }}>
-            {e.txt}
+        >
+            <div>
+                {e.cc}
+            </div>
+            <div>
+                ₴{e.rate.toFixed(2)}
+            </div>
+            <button
+                className={s.elementBtn}
+                onClick={() => { setNewCourse(e) }}
+            >
+                вибрати
+            </button>
         </li>)
 
     return (
-        <div>
-            <form className={s.form}>
-                <h1>{!newCourse.txt ? 'Виберіть валюту' : newCourse.txt}</h1>
-                <input
-                    type="text"
-                    value={value}
-                    onChange={e => setValue(e.target.value)}
-                    onKeyPress={confirm}
-                    placeholder="Введіть суму"
-                />
-                <h1>В гривнях: {course.toFixed(2)}</h1>
-            </form>
-            <span>
-                <ul>
-                    {exchangeElements}
-                </ul>
-            </span>
+        <div className={s.container}>
+            <div className={s.leftSide}>
+                <div className={s.leftSideTitle}>
+                    <div>Обмінник</div>
+                    <div>Валют</div>
+                </div>
+            </div>
+            <div className={s.rightSide}>
+                <form className={s.form}>
+                    <p>{!newCourse.txt ? 'Виберіть валюту' : newCourse.txt}</p>
+                    <input
+                        type="text"
+                        value={value}
+                        onChange={e => setValue(e.target.value)}
+                        onKeyPress={confirm}
+                        placeholder="Введіть суму"
+                        disabled={!newCourse.txt}
+                    />
+                    <p>{!newCourse.txt ? '' : Number.isNaN(course) ? 'Не правильно вказано' : `В гривнях: ${course.toFixed(2)}`}</p>
+                </form>
+                <span>
+                    <ul>
+                        {exchangeElements}
+                    </ul>
+                </span>
+            </div>
         </div>
     );
 }
